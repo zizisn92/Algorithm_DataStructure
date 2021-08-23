@@ -4,6 +4,7 @@ namespace Bai16_InLichNam
 {
     class Program
     {
+		// Kiem tra nam nhuan
         static bool KiemTraNamNhuan(int year)
         {
             if (year % 400 == 0 || (year % 4 == 0 && year % 100 != 0))
@@ -12,6 +13,7 @@ namespace Bai16_InLichNam
             }
             return false;
         }
+		// Tinh so ngay trong 1 thang nam duong lich
         static int TinhSoNgayTrongThang(int month, int year)
         {
             if (month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || month == 10||month==12)
@@ -34,7 +36,9 @@ namespace Bai16_InLichNam
                 return 30;
             }
         }
-        static int getDow(int q, int m, int y)
+		
+		 // Tinh thu trong tuan khi truyen vao ngay trong nam (Monday, Tuesday, ... Sunday)
+        static int TinhThuTrongTuan(int q, int m, int y)
         {
             if (m == 1) { m = 13; y--; }
             if (m == 2) { m = 14; y--; }
@@ -51,7 +55,7 @@ namespace Bai16_InLichNam
                 Console.WriteLine("{0,30}", $"Thang {i}");
                 Console.WriteLine("{0,-5}{1,-5}{2,-5}{3,-5}{4,-5}{5,-5}{6,-5}", "S", "M", "T", "W", "T", "F", "S");
                 int count = 0;
-                int ngayDauTienThang = getDow(1, i, year);
+                int ngayDauTienThang = TinhThuTrongTuan(1, i, year);
                 count = ngayDauTienThang;
                 for (int j = 0; j < ngayDauTienThang; j++)
                 {
